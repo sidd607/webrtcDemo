@@ -23,9 +23,13 @@ to run the application, run the server.js in webRTC-Demo/ folder
 $ cd webRTC-Demo
 $ node server.js
 ```
-Open up a browse at *localhost:2013* to use the application. The user joins a room named foo. If such a room doesnot exist then one is created.
+Open up a browse at *localhost:2013* to use the application. 
 
-Another user can join the room at *localhost:2013* and start conversing. Currently the limit for the room is set to 2
+you have to choose a tuen server you would like to connect either Google's server or a custom server setup by me.
+
+You are then prompted to choose a room to connect. If the chosen room is already connected then you join the room and start conversing with the other person in the room.
+
+If a room doesnot exist. The application will create the required room.
 
 ## Application Specification
 
