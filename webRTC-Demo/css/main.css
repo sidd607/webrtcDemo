@@ -1,0 +1,97 @@
+body{
+  background-image: url(../images/tmp.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.outgoing{
+  top: 10px;
+  left: 100px
+  height: 15%;
+  width: 15%;
+}
+
+.fullscreen-bg {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.outgoing {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 20%;
+  width: 20%; 
+}
+
+.incomming {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mute{
+  z-index: 100;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .incomming {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .incomming {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url('../images/tmp.jpg') center center / cover no-repeat;
+  }
+
+  .incomming {
+    display: none;
+  }
+}
+
+.controls{
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  z-index: 0;
+}
+
+.logs{
+  color: white;
+  position: fixed;
+  bottom: 50px;
+  width:100%;
+  background-color: black;
+  z-index: -50;
+}
+
+video#remoteVideo { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url('../images/tmp.jpg') no-repeat;
+    background-size: cover; 
+}

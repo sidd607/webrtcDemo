@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta charset="utf-8"> 
+<meta name='keywords' content='WebRTC, HTML5, JavaScript' />
+<meta name='description' content='WebRTC Reference App' />
+<meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1'>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<base target='_blank'>
+
+<title>WebRTC client</title>
+
+<!-- <link rel='stylesheet' href='css/main.css' /> -->
+
+</head>
+
+<body>
+<style>
+	.outgoing{
+		transform: rotateY(180deg);
+		-webkit-transform:rotateY(180deg); /* Safari and Chrome */
+		-moz-transform:rotateY(180deg); /* Firefox */
+	}
+
+</style>
+<div id='textareas' hidden="true">
+		<textarea id="dataChannelSend" disabled placeholder="Press Start, enter some text, then press Send."></textarea>
+		<textarea id="dataChannelReceive" disabled></textarea>
+	</div>
+
+  <button id="sendButton" disabled hidden="true">Send</button>
+
+<div id='container'>
+<center> <h1> This is a demonstration for WebRTC </h1> </center>
+  <div id=''>
+      <video id='remoteVideo' autoplay class = ""></video>
+	  <video id='localVideo' class = "outgoing" autoplay muted></video>
+
+  </div>
+  <center>
+	  <div class = "controls">
+	  	  <div id = "mute" onclick='muteAudio()' class = "col-md-3 mute btn btn-danger"> Toggle Audio </div>
+	      <div id = "agc" onclick='toggleAGC()' class = "col-md-3 btn btn-warning"> Toggle AGC </div>
+	      <div id = "aec" onclick='toggleAEC()' class = "col-md-3 btn btn-success"> Toggle AEC </div>
+	      <div id = "hangup" onclick="hangup()" class = "col-md-3 btn btn-default disabled"> HangUp</div>
+
+	  </div>
+  </center>
+</div>
+<div class="logs">
+	<p id = "logs">joined Room with PCMU audio codec</p>
+</div>
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='js/lib/adapter.js'></script>
+<script src='js/mainPCMU.js'></script>
+
+</body>
+</html>
