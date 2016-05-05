@@ -1,9 +1,5 @@
 'use strict';
 
-
-
-function startApplication(){
-
   var sendChannel;
   var sendButton = document.getElementById("sendButton");
   var sendTextarea = document.getElementById("dataChannelSend");
@@ -19,6 +15,9 @@ function startApplication(){
   var remoteStream;
   var turnReady;
   var pc_config;
+
+function startApplication(){
+
   if ($("#serverList").val() == "custom"){ 
     pc_config = {'iceServers': [{'url' : 'turn:52.39.109.47:3478','username' : 'gorst', 'credential': 'hero'}]};
     console.log(pc_config);
@@ -40,7 +39,6 @@ function startApplication(){
   var room = location.pathname.substring(1);
   if (room === '') {
     room = prompt('Enter room name:');
-    room = 'foo';
   } else {
 
   }
@@ -264,9 +262,13 @@ function startApplication(){
     }, constraints);
   }
 
+  function failure(){
+    console.log("failed");
+  }
+
   function doAnswer() {
     console.log('Sending answer to peer.');
-    pc.createAnswer(setLocalAndSendMessage, null, sdpConstraints);
+    pc.createAnswer(setLocalAndSendMessage, failure, sdpConstraints);
   }
 
   function mergeConstraints(cons1, cons2) {
@@ -425,7 +427,6 @@ function startApplication(){
 
 
 }
-
 function muteAudio(){
   var audioTrack = localStream.getAudioTracks();
   if(audioTrack[0]){
